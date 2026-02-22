@@ -1,8 +1,8 @@
 import React, { useState, useCallback, useEffect, useRef } from "react";
-import AdSlot from "../components/AdSlot";
 import HeroIllustration from "../components/HeroIllustration";
-import typingGirl from "../assets/images/typing-girl.svg";
-import typingBoy from "../assets/images/typing-boy.svg";
+
+const typingGirl = "/images/typing-girl.svg";
+const typingBoy = "/images/typing-boy.svg";
 
 const DIFFICULTY_TEXTS = {
   Easy: `cat dog run sit the and is it we go to be at so on in up do can get see look come here this that have like play.`,
@@ -140,19 +140,9 @@ export default function TypingTestDashboard() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-[var(--bg)] text-[var(--text)] transition-colors duration-300">
-      <div className="w-full max-w-[1580px] mx-auto px-4 flex flex-col items-center">
-        <div className="flex-shrink-0 flex justify-center w-full mb-6">
-          <AdSlot position="top" width={728} height={90} />
-        </div>
-
-        <div className="w-full grid grid-cols-1 min-[1200px]:grid-cols-[auto_1fr_auto] gap-6 min-[1200px]:gap-8 items-start justify-items-center">
-          <div className="hidden min-[1200px]:flex justify-center">
-            <AdSlot position="left" width={160} height={600} />
-          </div>
-
-          <div className="w-full max-w-[1100px] mx-auto min-w-0">
-            <section className="w-full min-h-[520px] rounded-[20px] border border-[var(--border)] bg-[var(--surface)] p-10 shadow-xl transition-all duration-300 fade-in grid grid-cols-1 md:grid-cols-[1fr_2fr_1fr] gap-8 items-center overflow-visible">
-              <div className="hidden md:flex justify-center items-center min-h-[200px] -mx-2">
+      <div className="w-full max-w-[1100px] mx-auto px-4 flex flex-col items-center">
+        <section className="w-full min-h-[520px] rounded-[20px] border border-[var(--border)] bg-[var(--surface)] p-10 shadow-xl transition-all duration-300 fade-in grid grid-cols-1 md:grid-cols-[1fr_2fr_1fr] gap-8 items-center overflow-visible">
+              <div className="flex justify-center items-center min-h-[200px] -mx-2">
                 <HeroIllustration src={typingGirl} alt="Person typing" />
               </div>
 
@@ -309,20 +299,10 @@ export default function TypingTestDashboard() {
                 )}
               </div>
 
-              <div className="hidden md:flex justify-center items-center min-h-[200px] -mx-2">
+              <div className="flex justify-center items-center min-h-[200px] -mx-2">
                 <HeroIllustration src={typingBoy} alt="Person typing" />
               </div>
             </section>
-          </div>
-
-          <div className="hidden min-[1200px]:flex justify-center">
-            <AdSlot position="right" width={300} height={600} />
-          </div>
-        </div>
-
-        <div className="flex-shrink-0 flex justify-center w-full mt-8">
-          <AdSlot position="bottom" width={728} height={250} />
-        </div>
       </div>
     </div>
   );

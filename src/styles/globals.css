@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+:root[data-theme="dark"], :root {
   --bg: #0f0f12;
   --surface: #18181c;
   --border: #2a2a2e;
@@ -12,6 +12,18 @@
   --correct: #22c55e;
   --incorrect: #ef4444;
   --cursor: #a78bfa;
+}
+
+:root[data-theme="light"] {
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --border: #e6e6e6;
+  --text: #0f172a;
+  --muted: #6b7280;
+  --accent: #7c3aed;
+  --correct: #16a34a;
+  --incorrect: #dc2626;
+  --cursor: #7c3aed;
 }
 
 body {

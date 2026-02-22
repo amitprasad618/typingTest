@@ -2,28 +2,33 @@ import React, { useState } from "react";
 
 export default function HeroIllustration({ src, alt, className = "" }) {
   const [failed, setFailed] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+
+  if (failed || !src) {
+    return (
+      <div
+        className={`relative flex justify-center items-center self-center max-h-[320px] pointer-events-none select-none rounded-2xl border border-[var(--border)] bg-[var(--surface)] w-32 h-40 text-[var(--muted)] text-sm ${className}`}
+        aria-hidden
+      >
+        Illustration (Unavailable)
+      </div>
+    );
+  }
 
   return (
     <div
-      className={`relative flex justify-center items-center self-center max-h-[320px] pointer-events-none select-none ${className}`}
+      className={`relative flex justify-center items-center self-center max-h-[320px] pointer-events-auto select-none cursor-pointer overflow-hidden rounded-lg ${className}`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
-      {failed ? (
-        <div
-          className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] flex items-center justify-center text-[var(--muted)] text-sm w-32 h-40 max-h-[320px]"
-          aria-hidden
-        >
-          Illustration
-        </div>
-      ) : (
-        <div className="relative w-full max-h-[320px] flex items-center justify-center">
-          <img
-            src={src}
-            alt={alt}
-            className="w-full h-full max-h-[320px] object-contain"
-            onError={() => setFailed(true)}
-          />
-        </div>
-      )}
+      <img
+        src={src}
+        alt={alt}
+        className={`w-full h-full max-h-[320px] object-contain transition-transform duration-300 ease-out ${
+          isHovered ? "scale-110" : "scale-100"
+        }`}
+        onError={() => setFailed(true)}
+      />
     </div>
   );
 }
