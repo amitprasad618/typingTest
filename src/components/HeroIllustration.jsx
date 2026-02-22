@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function HeroIllustration({ src, alt, className = "" }) {
+export default function HeroIllustration({ src, alt, className = "", loading = "eager" }) {
   const [failed, setFailed] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -24,6 +24,7 @@ export default function HeroIllustration({ src, alt, className = "" }) {
       <img
         src={src}
         alt={alt}
+        loading={loading}
         className={`w-full h-full max-h-[320px] object-contain transition-transform duration-300 ease-out ${
           isHovered ? "scale-110" : "scale-100"
         }`}

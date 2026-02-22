@@ -1,0 +1,21 @@
+# Typing Test Website - Robots.txt
+# Allows all search engines to crawl the entire site
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+# Sitemap location
+Sitemap: https://typingtest.example.com/sitemap.xml
+
+# Crawl delay to prevent overwhelming the server
+Crawl-delay: 1
+
+# Specific directives for Google
+User-agent: Googlebot
+Allow: /
+
+# Specific directives for Bing
+User-agent: Bingbot
+Allow: /
