@@ -29,6 +29,47 @@ const DIFFICULTY_OPTIONS = [
   { value: "Super Hard", label: "Super Hard" },
 ];
 
+// Helper function to find sentence boundaries (indices where sentences end)
+function getSentenceBoundaries(words) {
+  const boundaries = [];
+  for (let i = 0; i < words.length; i++) {
+    const word = words[i];
+    if (word.endsWith(".") || word.endsWith("!") || word.endsWith("?")) {
+      boundaries.push(i);
+    }
+  }
+  return boundaries;
+}
+
+// Get the starting index of the current sentence
+function getCurrentSentenceStart(currentWordIndex, sentenceBoundaries) {
+  if (currentWordIndex === 0) return 0;
+  for (let i = 0; i < sentenceBoundaries.length; i++) {
+    if (currentWordIndex <= sentenceBoundaries[i]) {
+      return i === 0 ? 0 : sentenceBoundaries[i - 1] + 1;
+    }
+  }
+  return sentenceBoundaries.length > 0 ? sentenceBoundaries[sentenceBoundaries.length - 1] + 1 : 0;
+}
+
+// Get words to display (current sentence + next 2 sentences for preview)
+function getDisplayWordRange(currentWordIndex, words, sentenceBoundaries) {
+  const sentenceStart = getCurrentSentenceStart(currentWordIndex, sentenceBoundaries);
+  
+  // Find how many sentences ahead we should show (up to 2 sentences)
+  let displayEndIndex = words.length;
+  let sentencesShown = 0;
+  
+  for (let i = 0; i < sentenceBoundaries.length && sentencesShown < 2; i++) {
+    if (sentenceBoundaries[i] >= sentenceStart) {
+      displayEndIndex = sentenceBoundaries[i] + 1;
+      sentencesShown++;
+    }
+  }
+  
+  return { start: sentenceStart, end: displayEndIndex };
+}
+
 export default function TypingTestDashboard() {
   const [status, setStatus] = useState("idle");
   const [durationOption, setDurationOption] = useState(DURATION_OPTIONS[0]);
@@ -186,7 +227,7 @@ export default function TypingTestDashboard() {
   return (
     <div className="min-h-screen flex flex-col bg-[var(--bg)] text-[var(--text)] transition-colors duration-300">
       {/* Hero Section */}
-      <div className="w-full min-h-screen flex items-center justify-center">
+      <div className="w-full flex items-start pt-12 justify-center">
         <div className="w-full max-w-[1100px] mx-auto px-4 flex flex-col items-center">
           <section className="relative w-full min-h-[520px] rounded-[20px] border border-[var(--border)] bg-[var(--surface)] p-10 shadow-xl transition-all duration-300 fade-in overflow-hidden flex items-center justify-center">
             {/* Left Image - Absolutely positioned, lazy loaded */}
@@ -202,7 +243,7 @@ export default function TypingTestDashboard() {
                     <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--text)] leading-tight">
                       Check your typing skills in a minute
                     </h1>
-                    <p className="text-[var(--muted)] text-lg">Type away to join 1+ million test takers!</p>
+                    <p className="text-[var(--muted)] text-lg">Practice your typing speed, improve accuracy, and track your progress with our free typing test.</p>
                   </div>
 
                   <div className="pt-2">
@@ -305,27 +346,37 @@ export default function TypingTestDashboard() {
                     <StatCard label="Time" value={timeDisplay} />
                   </div>
 
-                  <div className="min-h-[120px] cursor-text rounded-lg p-3 border border-[var(--border)]/50" onClick={() => status === "running" && document.getElementById("typing-input")?.focus()}>
+                  <div className="max-h-[200px] overflow-y-auto cursor-text rounded-lg p-3 border border-[var(--border)]/50 transition-all duration-300" onClick={() => status === "running" && document.getElementById("typing-input")?.focus()}>
                     <div className="flex flex-wrap gap-x-2 gap-y-2 text-lg leading-relaxed">
-                      {words.map((word, i) => (
-                        <span key={i}>
-                          {i < currentWordIndex ? (
-                            <span className="text-[var(--correct)]">{word}</span>
-                          ) : i === currentWordIndex ? (
-                            <span className="relative inline-block rounded px-0.5 py-0.5 bg-[var(--accent)]/15 ring-1 ring-[var(--accent)]/40" style={{ boxDecorationBreak: "clone" }}>
-                              {word.split("").map((char, j) => (
-                                <span key={j} className={j < input.length ? (char === input[j] ? "text-[var(--correct)]" : "text-[var(--incorrect)] underline decoration-wavy") : j === input.length ? "text-[var(--cursor)] bg-[var(--cursor)]/20" : "text-[var(--text)]"}>
-                                  {char}
+                      {(() => {
+                        const sentenceBoundaries = getSentenceBoundaries(words);
+                        const { start: displayStart, end: displayEnd } = getDisplayWordRange(currentWordIndex, words, sentenceBoundaries);
+                        
+                        return words.slice(displayStart, displayEnd).map((word, displayIndex) => {
+                          const actualIndex = displayStart + displayIndex;
+                          return (
+                            <span key={actualIndex} className={`transition-all duration-300 ${
+                              actualIndex < currentWordIndex ? "opacity-75" : ""
+                            }`}>
+                              {actualIndex < currentWordIndex ? (
+                                <span className="text-[var(--correct)]">{word}</span>
+                              ) : actualIndex === currentWordIndex ? (
+                                <span className="relative inline-block rounded px-0.5 py-0.5 bg-[var(--accent)]/15 ring-1 ring-[var(--accent)]/40" style={{ boxDecorationBreak: "clone" }}>
+                                  {word.split("").map((char, j) => (
+                                    <span key={j} className={j < input.length ? (char === input[j] ? "text-[var(--correct)]" : "text-[var(--incorrect)] underline decoration-wavy") : j === input.length ? "text-[var(--cursor)] bg-[var(--cursor)]/20" : "text-[var(--text)]"}>
+                                      {char}
+                                    </span>
+                                  ))}
+                                  {input.length >= word.length && <span className="text-[var(--incorrect)]">{input.slice(word.length)}</span>}
                                 </span>
-                              ))}
-                              {input.length >= word.length && <span className="text-[var(--incorrect)]">{input.slice(word.length)}</span>}
+                              ) : (
+                                <span className="text-[var(--muted)]">{word}</span>
+                              )}
+                              {actualIndex < words.length - 1 ? " " : ""}
                             </span>
-                          ) : (
-                            <span className="text-[var(--muted)]">{word}</span>
-                          )}
-                          {i < words.length - 1 ? " " : ""}
-                        </span>
-                      ))}
+                          );
+                        });
+                      })()}
                     </div>
                   </div>
 
