@@ -1,11 +1,20 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const isActive = (path) => location.pathname === path;
+
+  const handleHomeClick = (e) => {
+    if (location.pathname === "/") {
+      e.preventDefault();
+      // Force navigation to home with reset state
+      navigate("/", { state: { resetTest: true } });
+    }
+  };
 
   const navLinks = [
     { path: "/", label: "Home" },
@@ -21,7 +30,11 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="text-2xl font-bold text-[var(--accent)]">
+          <Link 
+            to="/" 
+            onClick={handleHomeClick}
+            className="text-2xl font-bold text-[var(--accent)]"
+          >
             TypingTest
           </Link>
 
@@ -31,6 +44,7 @@ export default function Navigation() {
               <Link
                 key={link.path}
                 to={link.path}
+                onClick={link.path === "/" ? handleHomeClick : undefined}
                 className={`px-3 py-2 rounded-lg text-sm font-medium transition ${
                   isActive(link.path)
                     ? "bg-[var(--accent)] text-white"
@@ -61,12 +75,17 @@ export default function Navigation() {
               <Link
                 key={link.path}
                 to={link.path}
+                onClick={(e) => {
+                  if (link.path === "/") {
+                    handleHomeClick(e);
+                  }
+                  setIsOpen(false);
+                }}
                 className={`block px-3 py-2 rounded-lg text-sm font-medium transition ${
                   isActive(link.path)
                     ? "bg-[var(--accent)] text-white"
                     : "text-[var(--text)] hover:bg-[var(--border)]"
                 }`}
-                onClick={() => setIsOpen(false)}
               >
                 {link.label}
               </Link>

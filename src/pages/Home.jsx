@@ -1,4 +1,5 @@
 import React, { useState, useCallback, useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 import HeroIllustration from "../components/HeroIllustration";
 import { typingTexts, getRandomText } from "../data/typingTexts";
 import { usePageMeta } from "../hooks/usePageMeta";
@@ -161,6 +162,25 @@ export default function TypingTestDashboard() {
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", darkMode ? "dark" : "light");
   }, [darkMode]);
+
+  const location = useLocation();
+
+  // Reset test when navigating to home
+  useEffect(() => {
+    if (location.pathname === "/") {
+      const shouldReset = location.state?.resetTest;
+      if (shouldReset) {
+        setStatus("idle");
+        setInput("");
+        setCurrentWordIndex(0);
+        setCorrectChars(0);
+        setTotalTypedChars(0);
+        setTimeLeft(durationSeconds);
+        setStartTime(null);
+        setEndTime(null);
+      }
+    }
+  }, [location.pathname, location.state, durationSeconds]);
 
   useEffect(() => {
     if (status !== "running" || timeLeft <= 0) return;
