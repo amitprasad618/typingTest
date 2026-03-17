@@ -148,6 +148,184 @@ export default function WPMCalculatorPage() {
         </div>
 
         <section className="mt-12 bg-[var(--surface)] rounded-lg p-8 border border-[var(--border)]">
+          <h2 className="text-2xl font-bold mb-6">Understanding Typing Metrics</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 className="text-lg font-bold mb-3">What is CPM (Characters Per Minute)?</h3>
+              <p className="text-[var(--muted)] mb-3">
+                CPM measures the total number of characters typed per minute, including all letters, numbers, spaces, and punctuation.
+                It's a more precise measurement than WPM for certain contexts.
+              </p>
+              <div className="bg-[var(--bg)] p-3 rounded border border-[var(--border)] mb-3">
+                <p className="font-mono text-center text-sm">CPM = Total Characters ÷ (Time in Minutes)</p>
+              </div>
+              <p className="text-[var(--muted)] text-sm">
+                <strong>Conversion:</strong> CPM ÷ 5 = WPM (since 1 word = 5 characters)
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-bold mb-3">Error Rate Calculation</h3>
+              <p className="text-[var(--muted)] mb-3">
+                Error rate shows the percentage of mistakes made during typing. Lower error rates indicate better accuracy and
+                more efficient typing habits.
+              </p>
+              <div className="bg-[var(--bg)] p-3 rounded border border-[var(--border)] mb-3">
+                <p className="font-mono text-center text-sm">Error Rate = (Errors ÷ Total Characters) × 100</p>
+              </div>
+              <p className="text-[var(--muted)] text-sm">
+                <strong>Professional standard:</strong> Less than 5% error rate
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="mt-8">
+          <h2 className="text-2xl font-bold mb-6">Typing Speed by Profession</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="bg-[var(--surface)] rounded-lg p-6 border border-[var(--border)]">
+              <h3 className="font-bold text-lg mb-2 text-blue-600">👩‍⚕️ Medical Transcription</h3>
+              <p className="text-[var(--muted)] text-sm mb-2">Requires exceptional speed and accuracy for patient records.</p>
+              <div className="space-y-1 text-sm">
+                <p><strong>WPM:</strong> 80-100+</p>
+                <p><strong>Accuracy:</strong> 99%+</p>
+                <p><strong>Daily Volume:</strong> 8-10 hours</p>
+              </div>
+            </div>
+            <div className="bg-[var(--surface)] rounded-lg p-6 border border-[var(--border)]">
+              <h3 className="font-bold text-lg mb-2 text-green-600">👨‍💼 Executive Assistant</h3>
+              <p className="text-[var(--muted)] text-sm mb-2">Handles correspondence, reports, and various document types.</p>
+              <div className="space-y-1 text-sm">
+                <p><strong>WPM:</strong> 60-75</p>
+                <p><strong>Accuracy:</strong> 97%+</p>
+                <p><strong>Daily Volume:</strong> 6-8 hours</p>
+              </div>
+            </div>
+            <div className="bg-[var(--surface)] rounded-lg p-6 border border-[var(--border)]">
+              <h3 className="font-bold text-lg mb-2 text-purple-600">👨‍💻 Software Developer</h3>
+              <p className="text-[var(--muted)] text-sm mb-2">Writes code and documentation with technical precision.</p>
+              <div className="space-y-1 text-sm">
+                <p><strong>WPM:</strong> 50-70</p>
+                <p><strong>Accuracy:</strong> 98%+</p>
+                <p><strong>Daily Volume:</strong> 6-8 hours</p>
+              </div>
+            </div>
+            <div className="bg-[var(--surface)] rounded-lg p-6 border border-[var(--border)]">
+              <h3 className="font-bold text-lg mb-2 text-orange-600">📊 Data Entry Specialist</h3>
+              <p className="text-[var(--muted)] text-sm mb-2">Inputs numerical data and codes with high precision.</p>
+              <div className="space-y-1 text-sm">
+                <p><strong>WPM:</strong> 70-90</p>
+                <p><strong>Accuracy:</strong> 99%+</p>
+                <p><strong>Daily Volume:</strong> 7-9 hours</p>
+              </div>
+            </div>
+            <div className="bg-[var(--surface)] rounded-lg p-6 border border-[var(--border)]">
+              <h3 className="font-bold text-lg mb-2 text-red-600">✍️ Content Writer</h3>
+              <p className="text-[var(--muted)] text-sm mb-2">Creates articles and content with creative expression.</p>
+              <div className="space-y-1 text-sm">
+                <p><strong>WPM:</strong> 40-60</p>
+                <p><strong>Accuracy:</strong> 95%+</p>
+                <p><strong>Daily Volume:</strong> 4-6 hours</p>
+              </div>
+            </div>
+            <div className="bg-[var(--surface)] rounded-lg p-6 border border-[var(--border)]">
+              <h3 className="font-bold text-lg mb-2 text-teal-600">🎓 Student</h3>
+              <p className="text-[var(--muted)] text-sm mb-2">Takes notes and writes assignments efficiently.</p>
+              <div className="space-y-1 text-sm">
+                <p><strong>WPM:</strong> 35-50</p>
+                <p><strong>Accuracy:</strong> 90%+</p>
+                <p><strong>Daily Volume:</strong> 2-4 hours</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="mt-8">
+          <h2 className="text-2xl font-bold mb-6">Improving Your Typing Metrics</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-[var(--surface)] rounded-lg p-6 border border-[var(--border)]">
+              <h3 className="font-bold text-lg mb-3">Speed Improvement Strategies</h3>
+              <ul className="space-y-2 text-[var(--muted)] text-sm">
+                <li>• Practice daily with consistent timing</li>
+                <li>• Focus on proper finger placement</li>
+                <li>• Use all fingers, not just index fingers</li>
+                <li>• Build muscle memory through repetition</li>
+                <li>• Gradually increase difficulty levels</li>
+                <li>• Take our typing test weekly to track progress</li>
+              </ul>
+            </div>
+            <div className="bg-[var(--surface)] rounded-lg p-6 border border-[var(--border)]">
+              <h3 className="font-bold text-lg mb-3">Accuracy Enhancement Tips</h3>
+              <ul className="space-y-2 text-[var(--muted)] text-sm">
+                <li>• Prioritize accuracy over speed initially</li>
+                <li>• Don't look at the keyboard while typing</li>
+                <li>• Practice with proper posture and positioning</li>
+                <li>• Take breaks to prevent fatigue-related errors</li>
+                <li>• Focus on one key at a time when learning</li>
+                <li>• Use our practice exercises for targeted improvement</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section className="mt-8">
+          <h2 className="text-2xl font-bold mb-6">Common Questions About WPM</h2>
+          <div className="space-y-6">
+            <div className="bg-[var(--surface)] rounded-lg p-6 border border-[var(--border)]">
+              <h3 className="font-bold mb-2">Why is WPM calculated as characters ÷ 5?</h3>
+              <p className="text-[var(--muted)]">
+                The 5-character standard comes from historical typing standards. The average English word is approximately 5
+                characters long (including spaces). This provides a consistent measurement across different languages and text types.
+                While some modern calculations use different standards, the 5-character rule remains the industry standard for WPM
+                measurements.
+              </p>
+            </div>
+            <div className="bg-[var(--surface)] rounded-lg p-6 border border-[var(--border)]">
+              <h3 className="font-bold mb-2">Should I include spaces in character count?</h3>
+              <p className="text-[var(--muted)]">
+                Yes, spaces are included in the total character count. Spaces are essential characters in written communication and
+                contribute to your overall typing speed. Professional typing tests always include spaces in their calculations.
+                The 5-character standard accounts for the fact that spaces make up roughly 20% of total characters in typical writing.
+              </p>
+            </div>
+            <div className="bg-[var(--surface)] rounded-lg p-6 border border-[var(--border)]">
+              <h3 className="font-bold mb-2">How does error adjustment work?</h3>
+              <p className="text-[var(--muted)]">
+                Error adjustment subtracts incorrect characters from your total to give a more accurate representation of productive
+                typing speed. For example, if you type 300 characters in 1 minute but make 10 errors, your adjusted WPM would be
+                calculated as if you only typed 290 correct characters. This provides a better measure of your actual typing proficiency.
+              </p>
+            </div>
+            <div className="bg-[var(--surface)] rounded-lg p-6 border border-[var(--border)]">
+              <h3 className="font-bold mb-2">What's the difference between gross WPM and net WPM?</h3>
+              <p className="text-[var(--muted)]">
+                Gross WPM is your raw typing speed without considering errors. Net WPM (also called adjusted WPM) factors in accuracy
+                by subtracting errors from the total. Most professional typing tests report net WPM because it better represents
+                your productive typing ability. Our calculator shows both raw speed and accuracy-adjusted results.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="mt-8 bg-gradient-to-r from-[var(--accent)] to-[var(--accent)]/80 text-white rounded-lg p-8">
+          <h2 className="text-2xl font-bold mb-4">Start Measuring Your Progress</h2>
+          <p className="mb-6">
+            Use our WPM calculator regularly to track your improvement over time. Combine it with our typing test and practice
+            exercises for the most comprehensive typing skill development experience.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <a href="/" className="inline-block bg-white text-[var(--accent)] px-6 py-3 rounded-lg hover:opacity-90 font-semibold text-center">
+              Take Typing Test
+            </a>
+            <a href="/typing-practice" className="inline-block border-2 border-white text-white px-6 py-3 rounded-lg hover:bg-white hover:text-[var(--accent)] font-semibold text-center">
+              Practice Daily
+            </a>
+            <a href="/improve-typing-speed" className="inline-block border-2 border-white text-white px-6 py-3 rounded-lg hover:bg-white hover:text-[var(--accent)] font-semibold text-center">
+              Speed Tips
+            </a>
+          </div>
+        </section>
+
+        <section className="mt-8">
           <h2 className="text-2xl font-bold mb-4">Getting Accurate Measurements</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-[var(--muted)]">
             <div>
