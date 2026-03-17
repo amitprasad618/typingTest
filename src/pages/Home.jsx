@@ -6,6 +6,30 @@ import { usePageMeta } from "../hooks/usePageMeta";
 const typingGirl = "/images/typing-girl.svg";
 const typingBoy = "/images/typing-boy.svg";
 
+// Function to play glass breaking sound
+function playErrorSound() {
+  try {
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    const oscillator = audioContext.createOscillator();
+    const gainNode = audioContext.createGain();
+    
+    oscillator.connect(gainNode);
+    gainNode.connect(audioContext.destination);
+    
+    // Create a shattering sound effect
+    oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+    oscillator.frequency.exponentialRampToValueAtTime(200, audioContext.currentTime + 0.1);
+    
+    gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+    
+    oscillator.start(audioContext.currentTime);
+    oscillator.stop(audioContext.currentTime + 0.1);
+  } catch (error) {
+    console.warn('Audio playback failed:', error);
+  }
+}
+
 function getTextForDifficulty(difficulty) {
   const texts = typingTexts[difficulty] ?? typingTexts.Medium;
   return getRandomText(texts);
@@ -200,8 +224,17 @@ export default function TypingTestDashboard() {
   const handleChange = useCallback((e) => {
     const v = e.target.value;
     if (/\s/.test(v)) return;
+    
+    // Check if the new input introduces an error
+    const currentWord = words[currentWordIndex] ?? "";
+    const hasNewError = v.length > 0 && v.length <= currentWord.length && v[v.length - 1] !== currentWord[v.length - 1];
+    
+    if (hasNewError) {
+      playErrorSound();
+    }
+    
     setInput(v);
-  }, []);
+  }, [words, currentWordIndex]);
 
   const elapsed =
     status === "finished" && startTime && endTime
