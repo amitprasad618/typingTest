@@ -2,13 +2,7 @@
   "routes": [
     {
       "src": "/sitemap-new.xml",
-      "dest": "/sitemap-new.xml",
-      "headers": {
-        "Cache-Control": "no-cache, no-store, must-revalidate, proxy-revalidate, max-age=0",
-        "Content-Type": "application/xml",
-        "ETag": "",
-        "Last-Modified": ""
-      }
+      "dest": "/api/sitemap"
     },
     {
       "handle": "filesystem"
