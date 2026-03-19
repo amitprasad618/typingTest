@@ -5,11 +5,11 @@
       "dest": "/sitemap-new.xml"
     },
     {
-      "handle": "filesystem"
-    },
-    {
       "src": "/.*",
       "dest": "/index.html"
+    },
+    {
+      "handle": "filesystem"
     }
   ],
   "headers": [
