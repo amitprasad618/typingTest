@@ -7,7 +7,7 @@ Disallow: /admin/
 Disallow: /private/
 
 # Sitemap location
-Sitemap: https://typing-test-one-orpin.vercel.app/sitemap.xml
+Sitemap: https://typing-test-one-orpin.vercel.app/sitemap-new.xml
 
 # Crawl delay to prevent overwhelming the server
 Crawl-delay: 1
