@@ -22,7 +22,7 @@
         },
         {
           "key": "Cache-Control",
-          "value": "no-cache, no-store, must-revalidate"
+          "value": "s-maxage=0, max-age=0, must-revalidate"
         },
         {
           "key": "Pragma",
