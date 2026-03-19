@@ -2,7 +2,11 @@
   "routes": [
     {
       "src": "/sitemap-new.xml",
-      "dest": "/sitemap-new.xml"
+      "dest": "/sitemap-new.xml",
+      "headers": {
+        "Cache-Control": "s-maxage=0, max-age=0, must-revalidate",
+        "Content-Type": "application/xml"
+      }
     },
     {
       "handle": "filesystem"
@@ -10,29 +14,6 @@
     {
       "src": "/.*",
       "dest": "/index.html"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/sitemap-new.xml",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/xml"
-        },
-        {
-          "key": "Cache-Control",
-          "value": "s-maxage=0, max-age=0, must-revalidate"
-        },
-        {
-          "key": "Pragma",
-          "value": "no-cache"
-        },
-        {
-          "key": "Expires",
-          "value": "0"
-        }
-      ]
     }
   ]
 }
