@@ -9,6 +9,10 @@ export default function handler(req, res) {
   res.removeHeader('ETag');
   res.removeHeader('Last-Modified');
 
+  // Override with empty values to prevent Vercel from adding them
+  res.setHeader('ETag', '');
+  res.setHeader('Last-Modified', '');
+
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
