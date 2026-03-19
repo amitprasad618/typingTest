@@ -4,7 +4,7 @@
       "src": "/sitemap-new.xml",
       "dest": "/sitemap-new.xml",
       "headers": {
-        "Cache-Control": "s-maxage=0, max-age=0, must-revalidate, no-cache, no-store",
+        "Cache-Control": "no-cache, no-store, must-revalidate, proxy-revalidate, max-age=0",
         "Content-Type": "application/xml",
         "ETag": "",
         "Last-Modified": ""
