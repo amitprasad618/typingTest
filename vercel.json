@@ -4,8 +4,10 @@
       "src": "/sitemap-new.xml",
       "dest": "/sitemap-new.xml",
       "headers": {
-        "Cache-Control": "s-maxage=0, max-age=0, must-revalidate",
-        "Content-Type": "application/xml"
+        "Cache-Control": "s-maxage=0, max-age=0, must-revalidate, no-cache, no-store",
+        "Content-Type": "application/xml",
+        "ETag": "",
+        "Last-Modified": ""
       }
     },
     {
