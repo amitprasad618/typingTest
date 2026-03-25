@@ -203,6 +203,23 @@ export default function TypingTestDashboard() {
     }
   }, [status, timeLeft, startTime]);
 
+  // Show results modal when test is finished
+  const [showResultsModal, setShowResultsModal] = useState(false);
+
+  useEffect(() => {
+    if (status === "finished") {
+      // Small delay to ensure all values are calculated
+      const timer = setTimeout(() => {
+        setShowResultsModal(true);
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [status]);
+
+  const closeResultsModal = useCallback(() => {
+    setShowResultsModal(false);
+  }, []);
+
   const startTest = useCallback(() => {
     const newWords = getWordsForDifficulty(difficulty);
     setWords(newWords);
@@ -220,6 +237,7 @@ export default function TypingTestDashboard() {
   }, [difficulty, durationSeconds]);
 
   const closeTest = useCallback(() => {
+    setShowResultsModal(false);
     setStatus("idle");
     setInput("");
     setCurrentWordIndex(0);
@@ -560,6 +578,124 @@ export default function TypingTestDashboard() {
           </div>
         </div>
       </section>
+
+      {/* Results Modal */}
+      {showResultsModal && status === "finished" && (
+        <ResultsModal
+          wpm={wpm}
+          accuracy={accuracy}
+          timeTaken={`${elapsed.toFixed(1)}s`}
+          correctChars={correctChars}
+          totalTyped={totalTypedChars}
+          difficulty={difficulty}
+          duration={durationSeconds}
+          onClose={() => {
+            setShowResultsModal(false);
+            closeResultsModal();
+          }}
+          onRestart={() => {
+            setShowResultsModal(false);
+            startTest();
+          }}
+        />
+      )}
+    </div>
+  );
+}
+
+// Results Modal Component
+function ResultsModal({ wpm, accuracy, timeTaken, correctChars, totalTyped, difficulty, duration, onClose, onRestart }) {
+  // Determine performance feedback
+  const getPerformanceFeedback = () => {
+    if (wpm < 20) return { message: "Keep practicing!", color: "text-red-500" };
+    if (wpm < 40) return { message: "Good start!", color: "text-orange-500" };
+    if (wpm < 60) return { message: "Nice work!", color: "text-yellow-500" };
+    if (wpm < 80) return { message: "Excellent!", color: "text-blue-500" };
+    return { message: "Professional level!", color: "text-green-500" };
+  };
+
+  const feedback = getPerformanceFeedback();
+
+  return (
+    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50 animate-fade-in">
+      <div className="bg-[var(--surface)] rounded-2xl border border-[var(--border)] p-8 max-w-lg w-full shadow-2xl transform transition-all animate-scale-in">
+        {/* Header with Icon */}
+        <div className="text-center mb-8">
+          <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-[var(--accent)] to-[var(--accent)]/50 flex items-center justify-center animate-bounce">
+            <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h2 className="text-3xl font-bold text-[var(--text)] mb-2">Test Complete!</h2>
+          <p className={`text-lg font-semibold ${feedback.color}`}>{feedback.message}</p>
+        </div>
+
+        {/* Main Stats */}
+        <div className="grid grid-cols-2 gap-4 mb-8">
+          {/* WPM Card */}
+          <div className="bg-gradient-to-br from-[var(--accent)]/10 to-[var(--accent)]/5 rounded-xl p-5 border border-[var(--accent)]/30 hover:border-[var(--accent)]/60 transition">
+            <p className="text-xs uppercase tracking-widest text-[var(--muted)] mb-2 font-semibold">Typing Speed</p>
+            <p className="text-4xl font-bold text-[var(--accent)]">{wpm}</p>
+            <p className="text-sm text-[var(--muted)] mt-1">WPM</p>
+          </div>
+
+          {/* Accuracy Card */}
+          <div className="bg-gradient-to-br from-green-500/10 to-green-500/5 rounded-xl p-5 border border-green-500/30 hover:border-green-500/60 transition">
+            <p className="text-xs uppercase tracking-widest text-[var(--muted)] mb-2 font-semibold">Accuracy</p>
+            <p className="text-4xl font-bold text-green-500">{accuracy ?? "0"}%</p>
+            <p className="text-sm text-[var(--muted)] mt-1">Accuracy Rate</p>
+          </div>
+
+          {/* Time Card */}
+          <div className="bg-gradient-to-br from-blue-500/10 to-blue-500/5 rounded-xl p-5 border border-blue-500/30 hover:border-blue-500/60 transition">
+            <p className="text-xs uppercase tracking-widest text-[var(--muted)] mb-2 font-semibold">Duration</p>
+            <p className="text-3xl font-bold text-blue-500">{timeTaken}</p>
+            <p className="text-sm text-[var(--muted)] mt-1">Time Taken</p>
+          </div>
+
+          {/* Characters Card */}
+          <div className="bg-gradient-to-br from-purple-500/10 to-purple-500/5 rounded-xl p-5 border border-purple-500/30 hover:border-purple-500/60 transition">
+            <p className="text-xs uppercase tracking-widest text-[var(--muted)] mb-2 font-semibold">Characters</p>
+            <p className="text-3xl font-bold text-purple-500">{correctChars}/{totalTyped}</p>
+            <p className="text-sm text-[var(--muted)] mt-1">Correct/Total</p>
+          </div>
+        </div>
+
+        {/* Additional Info */}
+        <div className="bg-[var(--bg)] rounded-lg p-4 mb-6 border border-[var(--border)]">
+          <div className="grid grid-cols-2 gap-4 text-center">
+            <div>
+              <p className="text-xs text-[var(--muted)] uppercase tracking-wide mb-1">Difficulty</p>
+              <p className="text-sm font-semibold text-[var(--text)]">{difficulty}</p>
+            </div>
+            <div>
+              <p className="text-xs text-[var(--muted)] uppercase tracking-wide mb-1">Test Duration</p>
+              <p className="text-sm font-semibold text-[var(--text)]">{duration}s</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Action Buttons */}
+        <div className="space-y-3">
+          <button
+            onClick={onRestart}
+            className="w-full bg-gradient-to-r from-[var(--accent)] to-[var(--accent)]/80 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg hover:shadow-[var(--accent)]/30 transition transform hover:scale-105"
+          >
+            Try Again
+          </button>
+          <button
+            onClick={onClose}
+            className="w-full border-2 border-[var(--border)] text-[var(--text)] px-6 py-3 rounded-lg font-semibold hover:bg-[var(--border)]/20 transition backdrop-blur-sm"
+          >
+            Close
+          </button>
+        </div>
+
+        {/* Motivational Footer */}
+        <p className="text-center text-xs text-[var(--muted)] mt-6">
+          {accuracy >= 95 ? "Excellent accuracy! Keep it up!" : accuracy >= 90 ? "Great job! Work on accuracy next." : "Focus on accuracy and you'll improve quickly!"}
+        </p>
+      </div>
     </div>
   );
 }

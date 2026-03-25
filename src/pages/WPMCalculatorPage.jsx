@@ -20,15 +20,16 @@ export default function WPMCalculatorPage() {
     const timeSeconds = parseInt(seconds) || 1;
     const errorCount = parseInt(errors) || 0;
 
-    if (timeSeconds === 0) return 0;
+    if (timeSeconds === 0 || charCount === 0) return { wpm: 0, accuracy: 0 };
 
     // Standard: 1 word = 5 characters
-    const words = charCount / 5;
+    const netCharacters = Math.max(0, charCount - errorCount);
+    const words = netCharacters / 5;
     const minutes = timeSeconds / 60;
     const wpm = Math.round(words / minutes);
-    const adjustedWpm = Math.max(0, wpm - errorCount);
+    const accuracy = charCount > 0 ? Math.round(((charCount - errorCount) / charCount) * 100) : 0;
 
-    return { wpm: adjustedWpm, accuracy: charCount > 0 ? Math.round(((charCount - errorCount) / charCount) * 100) : 0 };
+    return { wpm, accuracy };
   };
 
   const result = calculateWPM();
