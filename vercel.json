@@ -1,6 +1,14 @@
 {
   "routes": [
     {
+      "src": "/ads.txt",
+      "dest": "/ads.txt"
+    },
+    {
+      "src": "/robots.txt",
+      "dest": "/robots.txt"
+    },
+    {
       "src": "/sitemap-new.xml",
       "dest": "/sitemap-new.xml"
     },
