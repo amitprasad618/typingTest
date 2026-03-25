@@ -308,7 +308,7 @@ Home (/)
 ## 📞 SUPPORT
 
 For any questions or issues:
-- **Email**: support@typingtest.example.com
+- **Email**: amitprasad618@gmail.com
 - **Contact Form**: /contact-us
 - **Privacy**: /privacy-policy
 - **Terms**: /terms-and-conditions

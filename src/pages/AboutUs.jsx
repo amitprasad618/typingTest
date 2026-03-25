@@ -123,8 +123,8 @@ export default function AboutUs() {
             <h2 className="text-3xl font-bold mb-4">Get In Touch</h2>
             <p className="text-[var(--muted)] mb-4 leading-relaxed">
               Have questions, suggestions, or feedback? We'd love to hear from you! Contact us at{" "}
-              <a href="mailto:support@typingtest.example.com" className="text-[var(--accent)] hover:underline font-semibold">
-                support@typingtest.example.com
+              <a href="mailto:amitprasad618@gmail.com" className="text-[var(--accent)] hover:underline font-semibold">
+                amitprasad618@gmail.com
               </a>
             </p>
           </section>

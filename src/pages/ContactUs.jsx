@@ -57,8 +57,8 @@ export default function ContactUs() {
               </svg>
             </div>
             <h3 className="text-lg font-bold mb-2">Email</h3>
-            <a href="mailto:support@typingtest.example.com" className="text-[var(--accent)] hover:underline">
-              support@typingtest.example.com
+            <a href="mailto:amitprasad618@gmail.com" className="text-[var(--accent)] hover:underline">
+              amitprasad618@gmail.com
             </a>
           </div>
 

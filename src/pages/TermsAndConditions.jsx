@@ -90,8 +90,8 @@ export default function TermsAndConditions() {
             <h2 className="text-2xl font-bold mb-4">10. Contact Information</h2>
             <p className="text-[var(--muted)] leading-relaxed">
               If you have questions about these Terms & Conditions, please contact us at{" "}
-              <a href="mailto:support@typingtest.example.com" className="text-[var(--accent)] hover:underline">
-                support@typingtest.example.com
+              <a href="mailto:amitprasad618@gmail.com" className="text-[var(--accent)] hover:underline">
+                amitprasad618@gmail.com
               </a>
             </p>
           </section>
