@@ -81,7 +81,34 @@ export default function Footer() {
 
           {/* About */}
           <div>
-            <h3 className="font-bold text-lg mb-4 text-[var(--text)]">About</h3>
+            <h3 className="font-bold text-lg mb-4 text-[var(--text)]">Legal</h3>
+            <ul className="space-y-2 text-[var(--muted)]">
+              <li>
+                <Link to="/about-us" className="hover:text-[var(--accent)] transition">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact-us" className="hover:text-[var(--accent)] transition">
+                  Contact Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/privacy-policy" className="hover:text-[var(--accent)] transition">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link to="/terms-and-conditions" className="hover:text-[var(--accent)] transition">
+                  Terms & Conditions
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* About */}
+          <div>
+            <h3 className="font-bold text-lg mb-4 text-[var(--text)]">Company</h3>
             <p className="text-[var(--muted)] text-sm mb-4">
               Free online typing test and practice tool to help you improve your typing speed and accuracy.
             </p>
@@ -107,15 +134,15 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-[var(--muted)]">
             <p>&copy; {currentYear} Free Typing Test. All rights reserved.</p>
             <div className="flex gap-6">
-              <a href="#" className="hover:text-[var(--accent)] transition">
+              <Link to="/privacy-policy" className="hover:text-[var(--accent)] transition">
                 Privacy Policy
-              </a>
-              <a href="#" className="hover:text-[var(--accent)] transition">
+              </Link>
+              <Link to="/terms-and-conditions" className="hover:text-[var(--accent)] transition">
                 Terms of Service
-              </a>
-              <a href="#" className="hover:text-[var(--accent)] transition">
+              </Link>
+              <Link to="/contact-us" className="hover:text-[var(--accent)] transition">
                 Contact
-              </a>
+              </Link>
             </div>
           </div>
         </div>

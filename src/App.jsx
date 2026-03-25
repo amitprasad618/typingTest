@@ -6,6 +6,10 @@ import TypingPracticePage from "./pages/TypingPracticePage";
 import LearnTypingPage from "./pages/LearnTypingPage";
 import ImproveTypingSpeedPage from "./pages/ImproveTypingSpeedPage";
 import WPMCalculatorPage from "./pages/WPMCalculatorPage";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsAndConditions from "./pages/TermsAndConditions";
+import AboutUs from "./pages/AboutUs";
+import ContactUs from "./pages/ContactUs";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 
@@ -36,6 +40,10 @@ export default function App() {
             <Route path="/learn-typing" element={<LearnTypingPage />} />
             <Route path="/improve-typing-speed" element={<ImproveTypingSpeedPage />} />
             <Route path="/wpm-calculator" element={<WPMCalculatorPage />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+            <Route path="/about-us" element={<AboutUs />} />
+            <Route path="/contact-us" element={<ContactUs />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
