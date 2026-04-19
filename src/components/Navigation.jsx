@@ -22,6 +22,7 @@ export default function Navigation() {
     { path: "/typing-practice", label: "Practice" },
     { path: "/learn-typing", label: "Learn" },
     { path: "/improve-typing-speed", label: "Improve Speed" },
+    { path: "/advanced-typing-guide", label: "Masterclass" },
     { path: "/wpm-calculator", label: "WPM Calculator" },
   ];
 

@@ -50,6 +50,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link to="/advanced-typing-guide" className="hover:text-[var(--accent)] transition">
+                  Masterclass
+                </Link>
+              </li>
+              <li>
                 <Link to="/wpm-calculator" className="hover:text-[var(--accent)] transition">
                   WPM Calculator
                 </Link>

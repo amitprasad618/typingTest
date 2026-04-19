@@ -558,6 +558,29 @@ export default function TypingTestDashboard() {
                 <li>Improved confidence in professional environments</li>
               </ul>
             </article>
+
+            {/* Advanced Typing Masterclass */}
+            <article className="space-y-4">
+              <h2 className="text-2xl font-bold text-[var(--text)]">Advanced Typing Masterclass</h2>
+              <p className="text-[var(--muted)] leading-relaxed">
+                Ready to take your typing skills to the next level? Our Advanced Typing Masterclass covers professional techniques
+                used by elite typists. Learn cognitive optimization, neurological speed methods, and advanced training strategies
+                for achieving 100+ WPM speeds.
+              </p>
+              <h3 className="text-xl font-semibold text-[var(--text)] mt-6">Masterclass Topics:</h3>
+              <ul className="text-[var(--muted)] space-y-2 list-disc list-inside">
+                <li>Cognitive techniques for elite performance</li>
+                <li>Proprioceptive training methods</li>
+                <li>Neurological speed optimization</li>
+                <li>Professional speed ladders and benchmarks</li>
+                <li>Advanced performance psychology</li>
+              </ul>
+              <div className="mt-6">
+                <a href="/advanced-typing-guide" className="inline-block bg-[var(--accent)] text-white px-6 py-3 rounded-lg hover:opacity-90 font-semibold transition">
+                  Start Masterclass →
+                </a>
+              </div>
+            </article>
           </div>
         </div>
       </section>
@@ -575,6 +598,25 @@ export default function TypingTestDashboard() {
             <FAQItem question="How accurate should my typing be?" answer="Aim for at least 95% accuracy while typing. While speed is important, accuracy is equally crucial. Making fewer errors improves productivity and reduces the need for correction, which ultimately saves time." />
             <FAQItem question="Is free typing practice effective?" answer="Yes! Free typing tests are very effective for improving your typing skills. Consistent practice with varied difficulty levels helps develop muscle memory and improves reflexes. Our test provides real-time feedback on speed and accuracy." />
             <FAQItem question="How often should I practice typing?" answer="For best results, practice typing for at least 15-30 minutes daily. Regular, short practice sessions are more effective than occasional long sessions. This helps build muscle memory and maintains consistency." />
+          </div>
+        </div>
+      </section>
+
+      {/* Final Call-to-Action Section */}
+      <section className="w-full bg-gradient-to-r from-[var(--accent)] to-[var(--accent)]/80 py-16 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold text-white mb-6">Ready to Master Professional Typing?</h2>
+          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+            Take your typing skills to the next level with our comprehensive Advanced Typing Masterclass.
+            Learn elite techniques used by professional typists to achieve 100+ WPM speeds.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/advanced-typing-guide" className="inline-block bg-white text-[var(--accent)] px-8 py-4 rounded-lg hover:opacity-90 font-semibold text-lg transition transform hover:scale-105">
+              Start Masterclass →
+            </a>
+            <a href="/learn-typing" className="inline-block border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-[var(--accent)] font-semibold text-lg transition">
+              Learn Basics First
+            </a>
           </div>
         </div>
       </section>

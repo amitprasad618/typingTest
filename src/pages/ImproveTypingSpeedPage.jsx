@@ -296,24 +296,281 @@ export default function ImproveTypingSpeedPage() {
             </div>
           </section>
 
-          <article>
-            <h2 className="text-2xl font-bold mb-4">Speed Improvement Timeline</h2>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-              <div className="bg-[var(--surface)] rounded-lg p-4 border border-[var(--border)]">
-                <h3 className="font-bold text-lg mb-2">Weeks 1-2</h3>
-                <p className="text-sm text-[var(--muted)]">30-40 WPM, focus on accuracy</p>
+          <article className="bg-[var(--surface)] rounded-lg p-8 border border-[var(--border)]">
+            <h2 className="text-2xl font-bold mb-4">Scientific Research on Speed Improvement</h2>
+            <div className="space-y-6 text-[var(--muted)]">
+              <div>
+                <h3 className="font-bold text-lg mb-3">The Power Law of Practice</h3>
+                <p className="mb-3">
+                  Research from Anders Ericsson's deliberate practice studies shows that typing improvement follows a power law curve.
+                  Early gains are rapid, but later improvements require exponentially more practice.
+                </p>
+                <div className="bg-[var(--bg)] p-4 rounded border border-[var(--border)]">
+                  <div className="text-center">
+                    <p className="text-sm mb-2"><strong>Improvement Rate by Experience Level</strong></p>
+                    <div className="grid grid-cols-3 gap-4 text-sm">
+                      <div>
+                        <div className="font-semibold text-[var(--accent)]">Beginners</div>
+                        <div>10-15 WPM/week</div>
+                      </div>
+                      <div>
+                        <div className="font-semibold text-[var(--accent)]">Intermediate</div>
+                        <div>5-8 WPM/week</div>
+                      </div>
+                      <div>
+                        <div className="font-semibold text-[var(--accent)]">Advanced</div>
+                        <div>1-3 WPM/week</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="bg-[var(--surface)] rounded-lg p-4 border border-[var(--border)]">
-                <h3 className="font-bold text-lg mb-2">Weeks 3-4</h3>
-                <p className="text-sm text-[var(--muted)]">40-50 WPM, building speed</p>
+
+              <div>
+                <h3 className="font-bold text-lg mb-3">Cognitive Load Theory</h3>
+                <p className="mb-3">
+                  Modern research shows that typing speed improves when cognitive load is managed properly. Beginners should focus
+                  on one aspect at a time (either speed OR accuracy), while advanced typists can handle both simultaneously.
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded border border-green-200 dark:border-green-800">
+                    <h4 className="font-semibold text-green-800 dark:text-green-200 mb-2">✅ Effective Learning</h4>
+                    <ul className="text-sm space-y-1">
+                      <li>Single-task focus</li>
+                      <li>Progressive difficulty</li>
+                      <li>Immediate feedback</li>
+                      <li>Spaced repetition</li>
+                    </ul>
+                  </div>
+                  <div className="bg-red-50 dark:bg-red-900/20 p-4 rounded border border-red-200 dark:border-red-800">
+                    <h4 className="font-semibold text-red-800 dark:text-red-200 mb-2">❌ Ineffective Methods</h4>
+                    <ul className="text-sm space-y-1">
+                      <li>Multitasking</li>
+                      <li>Rushing without accuracy</li>
+                      <li>Random practice</li>
+                      <li>No progress tracking</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
-              <div className="bg-[var(--surface)] rounded-lg p-4 border border-[var(--border)]">
-                <h3 className="font-bold text-lg mb-2">Weeks 5-8</h3>
-                <p className="text-sm text-[var(--muted)]">50-70 WPM, improving fluency</p>
+
+              <div>
+                <h3 className="font-bold text-lg mb-3">Motor Learning Principles</h3>
+                <p className="mb-3">
+                  Typing speed gains are based on motor skill acquisition. Research shows that variable practice (different text types)
+                  leads to better long-term retention than constant practice (same text repeatedly).
+                </p>
+                <div className="bg-[var(--bg)] p-4 rounded border border-[var(--border)]">
+                  <p className="text-sm">
+                    <strong>Optimal Practice Mix:</strong> 70% familiar patterns, 20% similar new patterns, 10% completely novel patterns
+                  </p>
+                </div>
               </div>
-              <div className="bg-[var(--surface)] rounded-lg p-4 border border-[var(--border)]">
-                <h3 className="font-bold text-lg mb-2">Weeks 9-12</h3>
-                <p className="text-sm text-[var(--muted)]">70+ WPM, professional level</p>
+            </div>
+          </article>
+
+          <article className="bg-[var(--surface)] rounded-lg p-8 border border-[var(--border)]">
+            <h2 className="text-2xl font-bold mb-4">Advanced Training Techniques</h2>
+            <div className="space-y-6 text-[var(--muted)]">
+              <div>
+                <h3 className="font-bold text-lg mb-3">Interval Training Method</h3>
+                <p className="mb-3">
+                  Alternate between high-intensity speed bursts and recovery periods. This method, inspired by athletic training,
+                  builds both speed and endurance more effectively than constant moderate practice.
+                </p>
+                <div className="bg-[var(--bg)] p-4 rounded border border-[var(--border)]">
+                  <h4 className="font-semibold mb-2">Sample 20-Minute Session:</h4>
+                  <div className="space-y-2 text-sm">
+                    <div><strong>0-2 min:</strong> Warm-up at 70% max speed</div>
+                    <div><strong>2-4 min:</strong> Sprint at 90% max speed</div>
+                    <div><strong>4-6 min:</strong> Recovery at 60% max speed</div>
+                    <div><strong>6-8 min:</strong> Sprint at 95% max speed</div>
+                    <div><strong>8-10 min:</strong> Recovery at 60% max speed</div>
+                    <div><strong>10-15 min:</strong> Build to 85% max speed</div>
+                    <div><strong>15-20 min:</strong> Cool down at 70% max speed</div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h3 className="font-bold text-lg mb-3">Weakness-Specific Training</h3>
+                <p className="mb-3">
+                  Identify your slowest finger combinations and create targeted exercises. Most people have 2-3 finger pairs that
+                  are significantly slower than others.
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <h4 className="font-semibold mb-2">Common Weak Combinations:</h4>
+                    <ul className="text-sm space-y-1">
+                      <li>• Left pinky + right ring (A + L)</li>
+                      <li>• Right pinky + left index ( ; + F)</li>
+                      <li>• Both ring fingers (S + L)</li>
+                      <li>• Shift key combinations</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-2">Training Strategy:</h4>
+                    <ul className="text-sm space-y-1">
+                      <li>• Isolate weak combinations</li>
+                      <li>• Practice at slow speeds first</li>
+                      <li>• Gradually increase speed</li>
+                      <li>• Test improvement weekly</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h3 className="font-bold text-lg mb-3">Context-Specific Practice</h3>
+                <p className="mb-3">
+                  Practice typing content similar to what you'll actually type in your work or studies. This builds domain-specific
+                  speed and familiarity with common terms and patterns.
+                </p>
+                <div className="bg-[var(--bg)] p-4 rounded border border-[var(--border)]">
+                  <h4 className="font-semibold mb-2">Examples by Profession:</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                    <div>
+                      <strong>Programmers:</strong> Code snippets, variable names, symbols
+                    </div>
+                    <div>
+                      <strong>Writers:</strong> Long-form content, dialogue, descriptions
+                    </div>
+                    <div>
+                      <strong>Students:</strong> Academic vocabulary, essay structures
+                    </div>
+                    <div>
+                      <strong>Administrators:</strong> Business emails, reports, forms
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article className="bg-[var(--surface)] rounded-lg p-8 border border-[var(--border)]">
+            <h2 className="text-2xl font-bold mb-4">Technology & Tools for Speed Improvement</h2>
+            <div className="space-y-6 text-[var(--muted)]">
+              <div>
+                <h3 className="font-bold text-lg mb-3">Hardware Optimization</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <h4 className="font-semibold mb-2">Keyboard Types</h4>
+                    <ul className="text-sm space-y-2">
+                      <li><strong>Mechanical:</strong> Best tactile feedback, 15-20% speed boost</li>
+                      <li><strong>Membrane:</strong> Quiet, affordable, good for beginners</li>
+                      <li><strong>Ergonomic:</strong> Reduces strain, better for long sessions</li>
+                      <li><strong>Gaming:</strong> Fast response, customizable RGB</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-2">Key Switches</h4>
+                    <ul className="text-sm space-y-2">
+                      <li><strong>Blue:</strong> Tactile click, loud, good for accuracy</li>
+                      <li><strong>Brown:</strong> Tactile bump, quiet, balanced</li>
+                      <li><strong>Red:</strong> Linear, smooth, best for speed</li>
+                      <li><strong>Black:</strong> Linear, heavy, reduces accidental presses</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h3 className="font-bold text-lg mb-3">Software Tools</h3>
+                <div className="space-y-3">
+                  <div className="border-l-4 border-[var(--accent)] pl-4">
+                    <h4 className="font-semibold">Typing Analytics Software</h4>
+                    <p className="text-sm">Tools like WhatPulse or TypeLit track detailed metrics including individual finger speeds,
+                    common mistakes, and improvement trends.</p>
+                  </div>
+                  <div className="border-l-4 border-[var(--accent)] pl-4">
+                    <h4 className="font-semibold">Heat Map Analysis</h4>
+                    <p className="text-sm">Visual representations of keyboard usage help identify inefficient finger patterns and
+                    suggest optimal finger assignments.</p>
+                  </div>
+                  <div className="border-l-4 border-[var(--accent)] pl-4">
+                    <h4 className="font-semibold">Gamification Apps</h4>
+                    <p className="text-sm">Apps like TypingClub or Keybr use game mechanics to make practice more engaging and
+                    consistent.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h3 className="font-bold text-lg mb-3">Accessibility Features</h3>
+                <p className="mb-3">
+                  Modern operating systems include built-in accessibility features that can help improve typing speed:
+                </p>
+                <ul className="text-sm space-y-2">
+                  <li><strong>Sticky Keys:</strong> Press modifier keys separately for complex shortcuts</li>
+                  <li><strong>Filter Keys:</strong> Ignore brief key presses to prevent accidental repeats</li>
+                  <li><strong>Slow Keys:</strong> Increase key acceptance delay for better accuracy</li>
+                  <li><strong>Voice Control:</strong> Dictation for content creation, typing practice for editing</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article className="bg-[var(--surface)] rounded-lg p-8 border border-[var(--border)]">
+            <h2 className="text-2xl font-bold mb-4">Mental Strategies for Speed</h2>
+            <div className="space-y-6 text-[var(--muted)]">
+              <div>
+                <h3 className="font-bold text-lg mb-3">Flow State Achievement</h3>
+                <p className="mb-3">
+                  Elite typists enter a "flow state" where typing becomes automatic. This mental state is achieved through:
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded border border-blue-200 dark:border-blue-800">
+                    <h4 className="font-semibold text-blue-800 dark:text-blue-200 mb-2">Preparation Phase</h4>
+                    <ul className="text-sm space-y-1">
+                      <li>Clear goals and expectations</li>
+                      <li>Comfortable environment</li>
+                      <li>Proper warm-up routine</li>
+                      <li>Mental readiness cues</li>
+                    </ul>
+                  </div>
+                  <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded border border-green-200 dark:border-green-800">
+                    <h4 className="font-semibold text-green-800 dark:text-green-200 mb-2">Flow Triggers</h4>
+                    <ul className="text-sm space-y-1">
+                      <li>Appropriate challenge level</li>
+                      <li>Immediate feedback</li>
+                      <li>Loss of self-consciousness</li>
+                      <li>Distorted time perception</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h3 className="font-bold text-lg mb-3">Overcoming Mental Barriers</h3>
+                <div className="space-y-4">
+                  <div className="border-l-4 border-red-500 pl-4">
+                    <h4 className="font-semibold text-red-600">Fear of Mistakes</h4>
+                    <p className="text-sm">Embrace errors as learning opportunities. Professional typists make mistakes too -
+                    they just correct them quickly and continue.</p>
+                  </div>
+                  <div className="border-l-4 border-red-500 pl-4">
+                    <h4 className="font-semibold text-red-600">Perfectionism Paralysis</h4>
+                    <p className="text-sm">Accept that 95-98% accuracy is excellent. Waiting for 100% accuracy kills speed and flow.</p>
+                  </div>
+                  <div className="border-l-4 border-red-500 pl-4">
+                    <h4 className="font-semibold text-red-600">Comparison Anxiety</h4>
+                    <p className="text-sm">Compare yourself only to your previous performance. Everyone starts somewhere, and
+                    improvement is personal.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h3 className="font-bold text-lg mb-3">Visualization Techniques</h3>
+                <p className="mb-3">
+                  Mental rehearsal can improve physical performance. Before typing sessions, visualize successful execution:
+                </p>
+                <ol className="text-sm space-y-2 list-decimal list-inside">
+                  <li>Close your eyes and imagine your fingers on home row</li>
+                  <li>Visualize typing a familiar passage flawlessly</li>
+                  <li>Feel the rhythm and flow in your mind</li>
+                  <li>Open your eyes and execute with confidence</li>
+                </ol>
               </div>
             </div>
           </article>

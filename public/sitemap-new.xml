@@ -33,6 +33,12 @@
 </url>
 
 <url>
+<loc>https://typing-test-one-orpin.vercel.app/advanced-typing-guide</loc>
+<priority>0.8</priority>
+<changefreq>weekly</changefreq>
+</url>
+
+<url>
 <loc>https://typing-test-one-orpin.vercel.app/wpm-calculator</loc>
 <priority>0.8</priority>
 <changefreq>weekly</changefreq>
